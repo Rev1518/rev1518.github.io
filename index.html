@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Global Smart Build Summit and Awards</title>
     <style>
         /* Global Styles */
@@ -14,57 +13,56 @@
         }
 
         /* Body and General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
-    color: #333;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
 
-header, main, footer {
-    width: 100%; /* Ensure these sections span the full viewport width */
-    max-width: 100%; /* Ensure these sections do not exceed the viewport width */
-    overflow-x: hidden; /* Hide horizontal overflow if any */
-}
+        header, main, footer {
+            width: 100%; /* Ensure these sections span the full viewport width */
+            max-width: 100%; /* Ensure these sections do not exceed the viewport width */
+            overflow-x: hidden; /* Hide horizontal overflow if any */
+        }
 
-/* Other Specific Sections */
-header {
-    background-color: var(--primary-color);
-    padding: 1em 0;
-    text-align: center;
-    z-index: 10;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            padding: 1em 0;
+            text-align: center;
+            z-index: 10;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.header {
-    margin-left: 10px; /* Adjust margin for smaller screens */
-}
+        .logo {
+            margin-left: 10px; /* Adjust margin for smaller screens */
+        }
 
-.logo img {
-    height: 60px; /* Adjust height for smaller screens */
-}
+        .logo img {
+            height: 60px; /* Adjust height for smaller screens */
+        }
 
-@media (max-width: 768px) {
-    .logo {
-        margin-left: 10px; /* Adjust margin for smaller screens */
-    }
+        .menu-toggle {
+            display: none; /* Hide by default for larger screens */
+        }
 
-    .logo img {
-        height: 60px; /* Adjust height for smaller screens */
-    }
-}
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
         nav ul {
-            list-style: none;
+            list-style-type: none;
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center; /* Center items for smaller screens */
         }
 
         nav li {
@@ -74,21 +72,79 @@ header {
         nav a {
             color: #fff;
             text-decoration: none;
-            font-size: 1.1em;
+            font-size: 1.2em;
             transition: color 0.3s ease;
         }
 
         nav a:hover {
             color: var(--accent-color);
         }
-        @media (max-width: 768px) {
+
+/* CSS for Mobile Menu */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: fixed; /* Fix the toggle button at a fixed position */
+        top: 15px;
+        right: 20px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        z-index: 1100; /* Ensure it's above other content */
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 5px 0;
+        transition: transform 0.4s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    nav {
+        position: fixed; /* Fixed position for the nav menu */
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1000; /* Ensure it's above other content */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
+    }
+
+    nav.active {
+        display: flex;
+    }
+
     nav ul {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center items */
+        flex-direction: column;
+        align-items: center;
+        padding: 1em 0;
+        margin-top: 60px; /* Push content down below the header */
     }
 
     nav li {
-        margin: 10px 0; /* Add vertical margin between items */
+        margin: 10px 0;
+    }
+
+    nav a {
+        font-size: 1.5em;
     }
 }
 
@@ -278,6 +334,11 @@ header {
         <div class="logo">
             <img src="Logo-website-header.png" alt="Global Smart Build Summit Logo">
         </div>
+        <button class="menu-toggle" aria-label="Toggle Navigation Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -378,13 +439,22 @@ header {
                 <p>Phone: +91 74065 51114</p>
                 <p>Email: suhaib@summendorpro.com</p>
             </div>
-            <div>
-             
-            </div>
         </section>
     </main>
     <footer>
         <p>&copy; 2022-2024 Global Smart Build Summit and Awards. All rights reserved. Powered by Cloudwood Bradford, United Kingdom.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
