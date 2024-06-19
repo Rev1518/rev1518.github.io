@@ -36,9 +36,19 @@
         }
 
         .logo img {
-            height: 100px; /* Adjust the height of the logo */
-            width: auto;
-        }
+    height: 80px; /* Adjust height of the logo */
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        margin-left: 10px; /* Adjust margin for smaller screens */
+    }
+
+    .logo img {
+        height: 60px; /* Adjust height for smaller screens */
+    }
+}
 
         nav ul {
             list-style: none;
@@ -62,18 +72,16 @@
         nav a:hover {
             color: var(--accent-color);
         }
-
         @media (max-width: 768px) {
-            /* Adjust navigation for smaller screens */
-            nav ul {
-                flex-direction: column; /* Stack items vertically */
-                align-items: center; /* Center items */
-            }
+    nav ul {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items */
+    }
 
-            nav li {
-                margin: 10px 0; /* Add vertical margin between items */
-            }
-        }
+    nav li {
+        margin: 10px 0; /* Add vertical margin between items */
+    }
+}
 
         /* Hero Section */
         .hero {
