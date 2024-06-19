@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Smart Build Summit and Awards</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #1456e1e0;
+            --secondary-color: #2a5292;
+            --accent-color: #c15328;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            padding: 1em 0;
+            text-align: center;
+            z-index: 10;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            margin-left: 20px; /* Adjust as needed */
+        }
+
+        .logo img {
+            height: 100px; /* Adjust the height of the logo */
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Center items for smaller screens */
+        }
+
+        nav li {
+            margin: 0 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            /* Adjust navigation for smaller screens */
+            nav ul {
+                flex-direction: column; /* Stack items vertically */
+                align-items: center; /* Center items */
+            }
+
+            nav li {
+                margin: 10px 0; /* Add vertical margin between items */
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            overflow: hidden;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            filter: brightness(0.5);
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            z-index: 10;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+            z-index: 10;
+        }
+
+        .hero .primary-btn {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 0.8em 2em;
+            border: none;
+            border-radius: 0.5em;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
+
+        .hero .primary-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Main Sections */
+        .features, .projects, .newsletter, .footer-info {
+            padding: 10px;;
+            text-align: center;
+        }
+
+        .features h2, .projects h2, .newsletter h2 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 1em;
+        }
+
+        .features ul, .projects ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .features li, .projects li {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .features li:hover, .projects li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .features h3, .projects h3 {
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+        }
+
+        .projects img,
+        .features img {
+            width: 100%;
+            height: auto;
+            max-width: 100%; /* Ensure images don't exceed their container */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Newsletter Section */
+        .newsletter form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .newsletter input[type="text"],
+        .newsletter input[type="email"] {
+            width: calc(50% - 10px); /* Two inputs per row with some spacing */
+            padding: 1em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .newsletter button {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 1em 2em;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter button:hover {
+            background-color: #f7945e;
+        }
+
+        /* Footer Info Section */
+        .footer-info {
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            padding: 2em 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .footer-info h3 {
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+        }
+
+        .footer-info p, .footer-info a {
+            font-size: 1em;
+            margin: 0.5em 0;
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-info a:hover {
+            color: #fff;
+        }
+
+        .footer-info img {
+            max-width: 50%; /* Make the image responsive */
+            margin-bottom: 10px; /* Space below the image */
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            padding: 1em 0;
+            text-align: center;
+            color: #fff;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Logo-website-header.png" alt="Global Smart Build Summit Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Past Editions</a></li>
+                <li><a href="#">Awards</a></li>
+                <li><a href="#">Nomination</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <video autoplay muted loop>
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div>
+                <h1>Global Smart Build Summit and Awards</h1>
+                <p>Innovating Markets. Socio-Economically.</p>
+                <button class="primary-btn">Learn More</button>
+            </div>
+        </section>
+        <section class="features">
+            <h2>What Happens At Global Smart Build Summit & Awards?</h2>
+            <ul>
+                <li>
+                    <img src="img10.jpg" alt="Event 1">
+                    <h3>Unveiling of the Grand Event & Inauguration by Government of India</h3>
+                </li>
+                <li>
+                    <img src="2.png" alt="Event 2">
+                    <h3>Conference & Innovation Showcases</h3>
+                </li>
+                <li>
+                    <img src="3.png" alt="Event 3">
+                    <h3>B2B, B2G Meetings and Inspiring Networking Sessions</h3>
+                </li>
+                <li>
+                    <img src="4.jpg" alt="Event 4">
+                    <h3>Illustrating magnificent projects & products at the #Time2Leap National Awards</h3>
+                </li>
+            </ul>
+        </section>
+        <section class="projects">
+            <h2>Projects at Display</h2>
+            <ul>
+                <li>
+                    <img src="lux.jpg" alt="Luxury Project">
+                    <h3>Luxury Projects</h3>
+                </li>
+                <li>
+                    <img src="high.jpg" alt="High-Rise Project">
+                    <h3>High-Rise Projects</h3>
+                </li>
+                <li>
+                    <img src="mid.jpg" alt="Mid-Scale Project">
+                    <h3>Mid-Scale Projects</h3>
+                </li>
+                <li>
+                    <img src="re.jpg" alt="Redevelopment Project">
+                    <h3>Redevelopment Projects</h3>
+                </li>
+            </ul>
+        </section>
+        <section class="newsletter">
+            <h2>Stay in the loop and never miss a beat!</h2>
+            <form action="#">
+                <div>
+                    <input type="text" placeholder="Enter your Name" required>
+                    <input type="email" placeholder="Enter your email address" required>
+                </div>
+                <button class="primary-btn">Subscribe Newsletter</button>
+            </form>
+        </section>
+        <section class="footer-info">
+            <div class="about-event">
+                <img src="img11.png" alt="About the Event">
+                <h3>About the Event</h3>
+                <p>India, the 2nd most populous country in the world, is currently trending in the higher investment markets, climbing upwards towards becoming one of the biggest economies in the world. The current policies are massively uplifting the infrastructure & real estate market in the region.</p>
+            </div>
+            <div>
+                <h3>Navigation Links</h3>
+                <p><a href="#">Home</a> | <a href="#">Past Editions</a> | <a href="#">Awards</a> | <a href="#">Nomination</a> | <a href="#">Blog</a> | <a href="#">Contact</a></p>
+            </div>
+            <div>
+                <h3>Useful Links</h3>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms and Conditions</a></p>
+            </div>
+            <div>
+                <h3>Contact for Marketing & Branding</h3>
+                <p>Nitika Shahi</p>
+                <p>Phone: 080 4157 4773</p>
+                <p>Email: nitika@summentorpro.com</p>
+                <p>___________________________________</p>
+                <h3>Contact for Sales & Exhibiting</h3>
+                <p>Suhaib Ahmed</p>
+                <p>Phone: +91 74065 51114</p>
+                <p>Email: suhaib@summendorpro.com</p>
+            </div>
+            <div>
+             
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2022-2024 Global Smart Build Summit and Awards. All rights reserved. Powered by Cloudwood Bradford, United Kingdom.</p>
+    </footer>
+</body>
+</html>
